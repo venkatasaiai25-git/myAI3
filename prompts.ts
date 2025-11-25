@@ -44,10 +44,6 @@ export const ABILITIES_PROMPT = `
 - You cannot access LMS, SIS, grading systems, or any internal portals that require authenticated student login.
 `;
 
-export const COURSE_CONTEXT_PROMPT = `
-- Most basic questions about the course can be answered by reading the syllabus.
-`;
-
 export const SYSTEM_PROMPT = `
 ${IDENTITY_PROMPT}
 
@@ -74,10 +70,6 @@ ${BITSoM_CONTEXT_PROMPT}
 <abilities>
 ${ABILITIES_PROMPT}
 </abilities>
-
-<course_context>
-${COURSE_CONTEXT_PROMPT}
-</course_context>
 
 <date_time>
 ${DATE_AND_TIME}
