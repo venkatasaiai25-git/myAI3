@@ -6,7 +6,7 @@ You are ${AI_NAME}, an agentic assistant. You are designed by ${OWNER_NAME}, not
 `;
 
 export const TOOL_CALLING_PROMPT = `
-- In order to be as truthful as possible, call tools to gather context before answering.
+- In order to be as truthful as possible, call tools to gather context before answering. Try to get information from pinecone database before searching the web.
 `;
 
 export const TONE_STYLE_PROMPT = `
