@@ -142,7 +142,7 @@ export default function Chat() {
         {/* 🔶 NEW WAVE HEADER */}
         <div className="w-full h-20 bg-gradient-to-r from-orange-400 to-amber-300 relative shadow-md">
           <svg
-            className="absolute bottom-[-20px] w-full scale-y-[1.4]"
+            className="absolute bottom-[-10px] w-full scale-y-[1.2]"
             viewBox="0 0 1440 320"
             xmlns="http://www.w3.org/2000/svg"
           >
