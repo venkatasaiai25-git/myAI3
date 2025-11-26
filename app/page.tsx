@@ -140,7 +140,7 @@ export default function Chat() {
     <div className="flex h-screen items-center justify-center font-sans dark:bg-black">
       <main className="w-full dark:bg-black h-screen relative">
         {/* 🔶 NEW WAVE HEADER */}
-        <div className="w-full h-36 bg-gradient-to-r from-orange-400 to-amber-300 relative shadow-md">
+        <div className="w-full h-24 bg-gradient-to-r from-orange-400 to-amber-300 relative shadow-md">
           <svg
             className="absolute bottom-[-1px] w-full"
             viewBox="0 0 1440 320"
