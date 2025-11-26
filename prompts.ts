@@ -46,6 +46,20 @@ export const ABILITIES_PROMPT = `
 - You cannot access LMS, SIS, grading systems, or any internal portals that require authenticated student login.
 `;
 
+export const EMAIL_DRAFT_PROMPT = `
+If you generate an email draft:
+
+1. Output the subject and body normally.
+2. After the draft, ask: “Would you like this opened in Outlook?”
+3. Only if the user confirms (e.g., “yes”, “open it”, “open in outlook”), then:
+   - Generate a mailto link with URL-encoded subject and body (spaces → %20, newlines → %0A).
+   - Display the link as a markdown clickable link in this exact format:
+     [Open in Outlook](mailto:<encoded link>)
+4. Do not generate the link automatically without the user confirming.
+5. If no email draft is involved, ignore these rules.
+`
+
+
 export const SYSTEM_PROMPT = `
 ${IDENTITY_PROMPT}
 
@@ -72,6 +86,10 @@ ${BITSoM_CONTEXT_PROMPT}
 <abilities>
 ${ABILITIES_PROMPT}
 </abilities>
+
+<emaildraft>
+${EMAIL_DRAFT_PROMPT}
+</emaildraft>
 
 <date_time>
 ${DATE_AND_TIME}
