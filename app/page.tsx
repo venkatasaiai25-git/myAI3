@@ -142,7 +142,7 @@ export default function Chat() {
         {/* 🔶 NEW WAVE HEADER */}
         <div className="w-full h-20 bg-gradient-to-r from-orange-400 to-amber-300 relative shadow-md">
           <svg
-            className="absolute bottom-[-1px] w-full"
+            className="absolute bottom-[-20px] w-full scale-y-[1.4]"
             viewBox="0 0 1440 320"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -169,7 +169,7 @@ export default function Chat() {
             </Button>
           </div>
         </div>
-        <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[88px] pb-[150px]">
+        <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[100px] pb-[150px]">
           <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
               <>
