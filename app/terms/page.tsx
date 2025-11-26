@@ -13,11 +13,11 @@ export default function Terms() {
                     <ArrowLeftIcon className="w-4 h-4" />
                     Back to Chatbot
                 </Link>
-                <h1 className="text-3xl font-bold">MyAI3</h1>
+                <h1 className="text-3xl font-bold">BITsy</h1>
                 <h2 className="text-2xl font-semibold">Terms of Use / Disclaimer</h2>
 
                 <p className="text-gray-700">
-                    The following terms of use govern access to and use of the MyAI3
+                    The following terms of use govern access to and use of the BITsy
                     Assistant ("AI Chatbot"), an artificial intelligence tool provided by
                     {OWNER_NAME} ("I", "me", or "myself"). By engaging with the AI
                     Chatbot, you agree to these terms. If you do not agree, you may not
@@ -30,14 +30,14 @@ export default function Terms() {
                         <li className="text-gray-700">
                             <span className="font-semibold">Provider and Purpose:</span> The
                             AI Chatbot is a tool developed and maintained by {OWNER_NAME}. It
-                            is intended solely to assist users with questions and coursework
-                            related to courses taught by {OWNER_NAME}. The AI Chatbot is not
-                            affiliated with, endorsed by, or operated by the course provider.
+                            is intended solely to assist users with questions and suggestions
+                            related to life at BITSoM in general. The AI Chatbot is not
+                            affiliated with, endorsed by, or operated by any 3rd party provider.
                         </li>
                         <li className="text-gray-700">
                             <span className="font-semibold">Third-Party Involvement:</span>{" "}
                             The AI Chatbot utilizes multiple third-party platforms and
-                            vendors, some of which operate outside the United States. Your
+                            vendors, some of which operate outside the India. Your
                             inputs may be transmitted, processed, and stored by these
                             third-party systems. As such, confidentiality, security, and privacy
                             cannot be guaranteed, and data transmission may be inherently
@@ -49,6 +49,8 @@ export default function Terms() {
                             responses but may deliver inaccurate, incomplete, or outdated
                             information. Users are strongly encouraged to independently verify
                             any information before relying on it for decisions or actions.
+                            It would be best to contact any relevant authority for latest policies and 
+                            information, such as current student council or admin.
                         </li>
                     </ol>
                 </div>
@@ -102,7 +104,7 @@ export default function Terms() {
                     <ol className="list-decimal list-inside space-y-3">
                         <li className="text-gray-700">
                             <span className="font-semibold">Eligibility:</span> Use of the AI
-                            Chatbot is restricted to individuals aged 18 or older.
+                            Chatbot is restricted to individuals aged 18 or older and those who are current students of BITSoM.
                         </li>
                         <li className="text-gray-700">
                             <span className="font-semibold">Prohibited Conduct:</span> By
@@ -179,13 +181,13 @@ export default function Terms() {
                 <div className="space-y-4">
                     <h3 className="text-xl font-semibold">Governing Law and Jurisdiction</h3>
                     <p className="text-gray-700">
-                        These terms are governed by the laws of the State of North Carolina,
-                        United States. Additional jurisdictions may apply for users outside
-                        the United States, subject to applicable local laws. In case of
-                        conflicts, the laws of North Carolina shall prevail to the extent
+                        These terms are governed by the laws of the State of Maharastra,
+                        India. Additional jurisdictions may apply for users outside
+                        the India, subject to applicable local laws. In case of
+                        conflicts, the laws of Maharastra shall prevail to the extent
                         permissible. Any disputes arising under or in connection with these
                         terms shall be subject to the exclusive jurisdiction of the courts
-                        located in North Carolina.
+                        located in Mumbai.
                     </p>
                 </div>
 
@@ -199,7 +201,7 @@ export default function Terms() {
                 </div>
 
                 <div className="mt-8 text-sm text-gray-600">
-                    <p>Last Updated: November 17, 2025</p>
+                    <p>Last Updated: November 26, 2025</p>
                 </div>
             </div>
         </div>
