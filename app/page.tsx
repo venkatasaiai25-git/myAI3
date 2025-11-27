@@ -144,10 +144,12 @@ export default function Chat() {
         {/* ------------------------------------------------------------- */}
         {/*   🔥 NEW WAVE BANNER — BACKGROUND ONLY (NO UI IMPACT)         */}
         {/* ------------------------------------------------------------- */}
-        <div className="absolute top-0 left-0 right-0 -z-10 opacity-90 select-none pointer-events-none">
-          <svg viewBox="0 0 1440 320" className="w-full">
-            <path fill="#ff8a00" fillOpacity="0.95"
-              d="M0,96L40,112C80,128,160,160,240,170.7C320,181,400,171,480,165.3C560,160,640,160,720,181.3C800,203,880,245,960,229.3C1040,213,1120,139,1200,128C1280,117,1360,171,1400,197.3L1440,224V0H0Z"/>
+        {/* 🔶 Refined Wave — subtle, top-anchored, semi-transparent */}
+        <div className="absolute top-0 left-0 right-0 -z-10 pointer-events-none select-none">
+          <svg viewBox="0 0 1440 280" className="w-full opacity-[0.55] translate-y-[-30px]">
+            <path fill="#ff8a00"
+              d="M0,160L40,149C80,138,160,117,240,101C320,85,400,75,480,90C560,104,640,144,720,154C800,165,880,144,960,122C1040,101,1120,75,1200,74C1280,74,1360,96,1400,106L1440,117V0H0Z"
+            />
           </svg>
         </div>
         {/* ------------------------------------------------------------- */}
