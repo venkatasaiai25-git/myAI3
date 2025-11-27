@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
+import { HoverTip } from "@/components/ui/tooltip-wrapper";
 
 type VoiceInputButtonProps = {
   onStart?: () => void;
@@ -56,23 +57,25 @@ export function VoiceInputButton({ onStart, onStop }: VoiceInputButtonProps) {
   }
 
   return (
-    <button
-      type="button"
-      onMouseDown={startRecording}
-      onMouseUp={stopRecording}
-      onTouchStart={startRecording}
-      onTouchEnd={stopRecording}
-      className={`
-        size-9 rounded-full flex items-center justify-center
-        text-white transition-all duration-200 active:scale-95
-      
-        ${isRecording
-          ? "bg-blue-500 hover:bg-blue-600 ring-4 ring-blue-300 animate-pulse scale-110 shadow-lg"
-          : "bg-[#ffc98b] hover:bg-[#ffb66a] shadow-md"
-        }
-      `}
-    >
-      🎤
-    </button>
+    <HoverTip text="Press and hold to speak 🎤">
+      <button
+        type="button"
+        onMouseDown={startRecording}
+        onMouseUp={stopRecording}
+        onTouchStart={startRecording}
+        onTouchEnd={stopRecording}
+        className={`
+          size-9 rounded-full flex items-center justify-center
+          text-white transition-all duration-200 active:scale-95
+        
+          ${isRecording
+            ? "bg-blue-500 hover:bg-blue-600 ring-4 ring-blue-300 animate-pulse scale-110 shadow-lg"
+            : "bg-[#ffc98b] hover:bg-[#ffb66a] shadow-md"
+          }
+        `}
+      >
+        🎤
+      </button>
+    </HoverTip>
   );
 }
