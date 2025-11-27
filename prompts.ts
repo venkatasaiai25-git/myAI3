@@ -32,7 +32,8 @@ export const GUARDRAILS_PROMPT = `
 export const CITATIONS_PROMPT = `
 - Always cite your sources using inline markdown, e.g., [Source #](Source URL).
 - **Format:** Use inline markdown: [Source Name](URL).
-- **Rule:** NEVER use [Source #] without a link.
+- **Rule:** NEVER use [Source #] without a link. Only expections are when source is Escalation_Policy, Clubs_Event_Proposal_Email_Template, Support_Request_Tables, Placement_Policy (both cohorts), and Tribal_Knowledge
+- **NEVER** cite yourself or https://my-ai-3-lemon.vercel.app/ as source.
 - **Login Warning:** Remind users that some links require BITSoM email login.
 `;
 
