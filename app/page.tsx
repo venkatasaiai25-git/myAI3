@@ -158,7 +158,7 @@ export default function Chat() {
             <ChatHeader>
               <ChatHeaderBlock />
               <ChatHeaderBlock className="justify-center items-center">
-                <Avatar 
+                <Avatar
                   className="size-8 ring-1 ring-primary"
                 >
                   <AvatarImage src="/logo.png" />
@@ -231,24 +231,24 @@ export default function Chat() {
                             }}
                           />
                           {(status == "ready" || status == "error") && (
-                            <Button 
-                              className="absolute right-3 top-3 rounded-full" 
-                              type="submit" 
-                              disabled={!field.value.trim()} 
+                            <Button
+                              className="absolute right-3 top-3 rounded-full"
+                              type="submit"
+                              disabled={!field.value.trim()}
                               size="icon"
                             >
                               <ArrowUp className="size-4" />
                             </Button>
                           )}
                           {(status == "streaming" || status == "submitted") && (
-                            <Button 
-                              className="absolute right-2 top-2 rounded-full" 
-                              size="icon" 
+                            <Button
+                              className="absolute right-2 top-2 rounded-full"
+                              size="icon"
                               onClick={() => {
                                 stop();
                               }}
                             >
-                              <Square className="size-4"/>
+                              <Square className="size-4" />
                             </Button>
                           )}
                         </div>
@@ -261,8 +261,7 @@ export default function Chat() {
           </div>
           <div className="w-full px-5 py-3 items-center flex justify-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} {OWNER_NAME}&nbsp;
-            <Link href="/terms" className="underline">Terms of Use</Link>&nbsp;Powered by&nbsp;
-            <Link href="https://ringel.ai/" className="underline">Ringel.AI</Link>
+            <Link href="/terms" className="underline">Terms of Use</Link>&nbsp;Powered by&nbsp;<Link href="https://ringel.ai/" className="underline">Ringel.AI</Link>
           </div>
         </div>
       </main>
