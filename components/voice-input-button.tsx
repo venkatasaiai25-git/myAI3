@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { buttonVariants } from "@/components/ui/button";  // <-- add this at top
 
 type VoiceInputButtonProps = {
   onText: (value: string) => void; // gets transcribed text & sends back to parent
@@ -60,9 +61,8 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
       className={`
-        size-9 rounded-full flex items-center justify-center
-        bg-primary text-primary-foreground
-        hover:bg-primary/90 active:scale-95 shadow-sm transition-all
+        ${buttonVariants({ size: "icon", variant: "default" })}   /* ← EXACT SAME as Send */
+        rounded-full
         ${isRecording === true ? "ring-4 ring-red-400 animate-pulse" : ""}
       `}
     >
