@@ -206,7 +206,8 @@ export default function Chat() {
                           <Input
                             {...field}
                             id="chat-form-message"
-                            className="h-15 pr-15 pl-5 bg-card rounded-[20px]"
+                            // CHANGED: pr-15 -> pr-32 to prevent text going behind buttons
+                            className="h-15 pr-32 pl-5 bg-card rounded-[20px]"
                             placeholder="Type your message here..."
                             disabled={status === "streaming"}
                             aria-invalid={fieldState.invalid}
@@ -220,7 +221,8 @@ export default function Chat() {
                             }}
                           />
                           {/* 🔥 Voice Button Added Safely */}
-                          <div className="absolute right-12 top-3">
+                          {/* CHANGED: right-12 -> right-16 to space it out from the send button */}
+                          <div className="absolute right-16 top-3">
                             <VoiceInputButton
                               onStart={() => setIsVoiceInputting(true)}
                               onStop={(text) => {
@@ -231,7 +233,7 @@ export default function Chat() {
                               }}
                             />
                           </div>
-                          
+
                           {(status == "ready" || status == "error") && (
                             <Button
                               className="absolute right-3 top-3 rounded-full"
