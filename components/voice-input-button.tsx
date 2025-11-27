@@ -63,9 +63,14 @@ export function VoiceInputButton({ onStart, onStop }: VoiceInputButtonProps) {
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
       className={`
-        ${buttonVariants({ size: "icon", variant: "default" })}
-        rounded-full
-        ${isRecording ? "ring-2 ring-blue-400 animate-pulse" : ""}
+        ${buttonVariants({ variant: "default", size: "icon" })} 
+        rounded-full                      /* ensure circle */
+        transition-all active:scale-95 
+  
+        ${isRecording
+          ? "ring-4 ring-blue-300 animate-pulse"
+          : ""
+        }
       `}
     >
       🎤
