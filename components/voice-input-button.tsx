@@ -58,11 +58,16 @@ export function VoiceInputButton({ onText, className }: VoiceInputButtonProps) {
     <Button
       size="icon"
       variant="default"
-      className={`rounded-full transition ${recording && "bg-red-500 hover:bg-red-600"} ${className}`}
+      className={`
+        rounded-full transition 
+        ${recording ? "bg-[#ffb86c] hover:bg-[#ffa751]" : "bg-primary hover:bg-primary/80"}
+      `}
       onMouseDown={startRecording}
       onMouseUp={stopRecording}
+      onMouseLeave={stopRecording}     // ← CRUCIAL FIX: stops if pointer exits!
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
+      onTouchCancel={stopRecording}    // ← mobile safety stop
     >
       🎤
     </Button>
