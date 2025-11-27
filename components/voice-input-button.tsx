@@ -63,7 +63,7 @@ export function VoiceInputButton({ onStart, onStop }: VoiceInputButtonProps) {
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
       className={`
-        size-10 rounded-full flex items-center justify-center
+        size-9 rounded-full flex items-center justify-center
         text-white transition-all duration-200 active:scale-95
       
         ${isRecording
