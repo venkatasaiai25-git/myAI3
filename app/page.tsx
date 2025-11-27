@@ -143,11 +143,11 @@ export default function Chat() {
       <div className="fixed top-0 left-0 right-0 z-50 pb-8 pointer-events-none">
         <div className="relative h-24 bg-gradient-to-r from-orange-400 to-amber-300 shadow-md">
     
-          <svg className="absolute bottom-[-10px] w-full scale-y-[1.1]" viewBox="0 0 1440 320">
+          <svg className="absolute bottom-[-10px] w-full scale-y-[1.1] -z-10" viewBox="0 0 1440 320">
             <path fill="#ffffff" d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,202.7C840,235,960,245,1080,213.3C1200,181,1320,107,1380,69.3L1440,32V0H0Z"/>
           </svg>
     
-          <ChatHeader className="pointer-events-auto">
+          <ChatHeader>
     
             <ChatHeaderBlock />
     
