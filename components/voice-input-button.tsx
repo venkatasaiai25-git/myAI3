@@ -59,11 +59,13 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
       onMouseUp={stopRecording}
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
-      className={`px-3 py-1 rounded border text-sm ${
-        isRecording ? "bg-red-600 text-white" : "bg-white text-black"
-      }`}
+      className={`w-10 h-10 rounded-full flex items-center justify-center 
+        bg-orange-500 text-white shadow-md 
+        hover:bg-orange-600 active:scale-95 transition
+        ${isRecording ? "ring-4 ring-red-400" : ""}
+      `}
     >
-      {isRecording ? "Recording..." : "🎤 Hold to speak"}
+      🎤
     </button>
   );
 }
