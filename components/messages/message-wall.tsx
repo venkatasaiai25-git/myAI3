@@ -27,7 +27,7 @@ export function MessageWall({ messages, status, durations, onDurationChange }: {
                     );
                 })}
 
-                <div ref={messagesEndRef} />
+                <div ref={messagesEndRef} className="h-0" />
             </div>
         </div>
     );
