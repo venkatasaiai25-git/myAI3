@@ -139,36 +139,39 @@ export default function Chat() {
   return (
     <div className="flex h-screen items-center justify-center font-sans dark:bg-black">
       <main className="w-full h-screen overflow-hidden relative">
-        {/* 🔶 NEW WAVE HEADER */}
-        <div className="fixed top-0 left-0 right-0 w-full h-20 bg-gradient-to-r from-orange-400 to-amber-300 relative shadow-md z-50">
-          <svg
-            className="absolute bottom-[-10px] w-full scale-y-[1.2]"
-            viewBox="0 0 1440 320"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#fff"
-              fillOpacity="1"
-              d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,202.7C840,235,960,245,1080,213.3C1200,181,1320,107,1380,69.3L1440,32V0H0Z"
-            />
+      {/* 🔶 New Wave Header but wrapped inside ChatHeader like original */}
+      <div className="fixed top-0 left-0 right-0 z-50 pb-16">
+        <div className="relative h-24 bg-gradient-to-r from-orange-400 to-amber-300 shadow-md">
+    
+          <svg className="absolute bottom-[-10px] w-full scale-y-[1.1]" viewBox="0 0 1440 320">
+            <path fill="#ffffff" d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,202.7C840,235,960,245,1080,213.3C1200,181,1320,107,1380,69.3L1440,32V0H0Z"/>
           </svg>
-        
-          {/* Place header content inside wave instead of floating */}
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-white">
-            <Avatar className="size-9 ring-2 ring-white">
-              <AvatarImage src="/logo.png" />
-              <AvatarFallback>🐯</AvatarFallback>
-            </Avatar>
-            <p className="text-lg font-semibold">Chat with {AI_NAME}</p>
-          </div>
-        
-          <div className="absolute top-4 right-6 flex items-center gap-2">
-            <Button variant="secondary" size="sm" onClick={clearChat} className="bg-white/90 text-orange-700 hover:bg-white">
-              <Plus className="size-4 text-orange-600" />
-              {CLEAR_CHAT_TEXT}
-            </Button>
-          </div>
+    
+          <ChatHeader>
+    
+            <ChatHeaderBlock />
+    
+            <ChatHeaderBlock className="justify-center items-center">
+              <Avatar className="size-9 ring-2 ring-white">
+                <AvatarImage src="/logo.png"/>
+              </Avatar>
+              <p className="text-lg font-semibold text-white">Chat with {AI_NAME}</p>
+            </ChatHeaderBlock>
+    
+            <ChatHeaderBlock className="justify-end">
+              <Button
+                size="sm"
+                onClick={clearChat}
+                className="bg-white/95 text-orange-700 hover:bg-white shadow-sm"
+              >
+                <Plus className="size-4 text-orange-600" />
+                {CLEAR_CHAT_TEXT}
+              </Button>
+            </ChatHeaderBlock>
+    
+          </ChatHeader>
         </div>
+      </div>
         <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[88px] pb-[150px]">
           <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
