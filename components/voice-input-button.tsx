@@ -59,8 +59,11 @@ export function VoiceInputButton({ onText, className }: VoiceInputButtonProps) {
       size="icon"
       variant="default"
       className={`
-        rounded-full transition 
-        ${recording ? "bg-[#ffb86c] hover:bg-[#ffa751]" : "bg-primary hover:bg-primary/80"}
+        rounded-full transition-all duration-200
+        ${recording 
+          ? "bg-blue-500 hover:bg-blue-600 scale-110 shadow-lg shadow-blue-300 animate-pulse"
+          : "bg-[#ffc98b] hover:bg-[#ffb66a]"
+        }
       `}
       onMouseDown={startRecording}
       onMouseUp={stopRecording}
