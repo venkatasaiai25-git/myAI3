@@ -12,6 +12,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { VoiceInputButton } from "@/components/voice-input-button";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUp, Eraser, Loader2, Plus, PlusIcon, Square } from "lucide-react";
 import { MessageWall } from "@/components/messages/message-wall";
@@ -216,6 +217,11 @@ export default function Chat() {
                               }
                             }}
                           />
+                          {/* 🔥 Voice Button Added Safely */}
+                          <div className="absolute left-3 top-3">
+                            <VoiceInputButton onText={(text) => form.setValue("message", text)} />
+                          </div>
+                          
                           {(status == "ready" || status == "error") && (
                             <Button
                               className="absolute right-3 top-3 rounded-full"
