@@ -67,6 +67,7 @@ const saveMessagesToStorage = (messages: UIMessage[], durations: Record<string, 
 };
 
 export default function Chat() {
+  const [isVoiceInputting, setIsVoiceInputting] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [durations, setDurations] = useState<Record<string, number>>({});
   const welcomeMessageShownRef = useRef<boolean>(false);
@@ -226,6 +227,7 @@ export default function Chat() {
                                 const appended = current ? `${current} ${text}` : text;
                           
                                 form.setValue("message", appended.trim(), { shouldValidate: true });
+                                setIsVoiceInputting(false);
                               }}
                             />
                           </div>
