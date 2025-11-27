@@ -219,7 +219,13 @@ export default function Chat() {
                           />
                           {/* 🔥 Voice Button Added Safely */}
                           <div className="absolute right-12 top-3">
-                            <VoiceInputButton onText={(text) => form.setValue("message", text, { shouldValidate: true })} />
+                            <VoiceInputButton 
+                              onText={(text) => {
+                                form.setValue("message", text, { shouldValidate: true });
+                                form.handleSubmit(onSubmit)();   // send immediately
+                                form.reset();                    // clear field for next voice
+                              } 
+                            />
                           </div>
                           
                           {(status == "ready" || status == "error") && (
