@@ -61,10 +61,11 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
       className={`
-        ${buttonVariants({ size: "icon", variant: "default" })}   /* ← EXACT SAME as Send */
-        rounded-full
+        ${buttonVariants({ variant: "default" })}
+        size-10 rounded-full          /* exact circle */
+        flex items-center justify-center
         ${isRecording === true ? "ring-4 ring-red-400 animate-pulse" : ""}
-      `}
+     `}
     >
       🎤
     </button>
