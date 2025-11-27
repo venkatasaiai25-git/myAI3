@@ -213,7 +213,7 @@ export default function Chat() {
                             autoComplete="off"
                             onKeyDown={(e) => {
                               // Only send if user physically pressed Enter
-                              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
+                              if (!isVoiceInputting && e.key === "Enter" && !e.shiftKey) {
                                 e.preventDefault();
                                 form.handleSubmit(onSubmit)();
                               }
