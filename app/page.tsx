@@ -162,14 +162,14 @@ export default function Chat() {
             <p className="text-lg font-semibold">Chat with {AI_NAME}</p>
           </div>
         
-          <div className="absolute top-4 right-6">
-            <Button variant="secondary" size="sm" onClick={clearChat} className="bg-white/80 hover:bg-white">
+          <div className="absolute top-4 right-6 flex items-center gap-2">
+            <Button variant="secondary" size="sm" onClick={clearChat} className="bg-white/90 text-orange-700 hover:bg-white">
               <Plus className="size-4 text-orange-600" />
               {CLEAR_CHAT_TEXT}
             </Button>
           </div>
         </div>
-        <div className="overflow-y-auto h-[calc(100vh-100px)] px-5 py-4 pb-[150px]">
+        <div className="overflow-y-auto h-[calc(100vh-100px)] px-5 py-6 pb-[150px]">
           <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
               <>
