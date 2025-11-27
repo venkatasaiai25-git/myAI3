@@ -221,11 +221,11 @@ export default function Chat() {
                           />
                           {/* 🔥 Voice Button Added Safely */}
                           <div className="absolute right-12 top-3">
-                            <VoiceInputButton 
-                              onText={(text) => {
+                            <VoiceInputButton
+                              onStart={() => setIsVoiceInputting(true)}
+                              onStop={(text) => {
                                 const current = form.getValues("message") || "";
                                 const appended = current ? `${current} ${text}` : text;
-                          
                                 form.setValue("message", appended.trim(), { shouldValidate: true });
                                 setIsVoiceInputting(false);
                               }}
