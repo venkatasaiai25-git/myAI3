@@ -9,7 +9,7 @@ type VoiceInputButtonProps = {
 export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<BlobPart[]>([]);
-  const [isRecording, setIsRecording] = useState(false);
+  const [isRecording, setIsRecording] = useState<boolean | null>(null);
 
   async function startRecording() {
     try {
@@ -62,9 +62,8 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
       className={`
         size-9 rounded-full flex items-center justify-center
         bg-primary text-primary-foreground
-        hover:bg-primary/90 transition-all
-        shadow-sm active:scale-95
-        ${isRecording ? "ring-4 ring-red-400" : ""}
+        hover:bg-primary/90 active:scale-95 shadow-sm transition-all
+        ${isRecording === true ? "ring-4 ring-red-400 animate-pulse" : ""}
       `}
     >
       🎤
