@@ -169,8 +169,8 @@ export default function Chat() {
             </Button>
           </div>
         </div>
-        <div className="overflow-y-auto px-5 pt-[100px] pb-[130px]">
-          <div className="flex flex-col items-center justify-start w-full max-w-3xl mx-auto gap-6">
+        <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[88px] pb-[150px]">
+          <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
               <>
                 <MessageWall messages={messages} status={status} durations={durations} onDurationChange={handleDurationChange} />
