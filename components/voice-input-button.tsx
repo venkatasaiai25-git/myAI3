@@ -59,9 +59,11 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
       onMouseUp={stopRecording}
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
-      className={`w-10 h-10 rounded-full flex items-center justify-center 
-        bg-orange-500 text-white shadow-md 
-        hover:bg-orange-600 active:scale-95 transition
+      className={`
+        size-9 rounded-full flex items-center justify-center
+        bg-primary text-primary-foreground
+        hover:bg-primary/90 transition-all
+        shadow-sm active:scale-95
         ${isRecording ? "ring-4 ring-red-400" : ""}
       `}
     >
