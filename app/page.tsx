@@ -12,6 +12,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { VoiceInputButton } from "@/components/voice-input-button";
 import { useChat } from "@ai-sdk/react";
 import { ArrowUp, Eraser, Loader2, Plus, PlusIcon, Square } from "lucide-react";
 import { MessageWall } from "@/components/messages/message-wall";
@@ -66,6 +67,8 @@ const saveMessagesToStorage = (messages: UIMessage[], durations: Record<string, 
 };
 
 export default function Chat() {
+  const [isVoiceInputting, setIsVoiceInputting] = useState(false);
+  const [isVoiceProcessing, setIsVoiceProcessing] = useState(false); // 🔥 NEW STATE
   const [isClient, setIsClient] = useState(false);
   const [durations, setDurations] = useState<Record<string, number>>({});
   const welcomeMessageShownRef = useRef<boolean>(false);
@@ -201,21 +204,46 @@ export default function Chat() {
                           Message
                         </FieldLabel>
                         <div className="relative h-13">
+
+                          {/* 🔥 Processing Indicator Badge */}
+                          {isVoiceProcessing && (
+                            <div className="absolute -top-8 left-0 flex items-center gap-2 text-xs font-medium text-blue-500 animate-pulse bg-blue-50/80 dark:bg-blue-950/50 px-3 py-1 rounded-full backdrop-blur-sm border border-blue-100 dark:border-blue-900">
+                              <Loader2 className="size-3 animate-spin" />
+                              <span>Processing voice...</span>
+                            </div>
+                          )}
+
                           <Input
                             {...field}
                             id="chat-form-message"
-                            className="h-15 pr-15 pl-5 bg-card rounded-[20px]"
-                            placeholder="Type your message here..."
+                            className="h-15 pr-32 pl-5 bg-card rounded-[20px]"
+                            // Change placeholder when processing
+                            placeholder={isVoiceProcessing ? "Processing audio..." : "Type your message here..."}
                             disabled={status === "streaming"}
                             aria-invalid={fieldState.invalid}
                             autoComplete="off"
                             onKeyDown={(e) => {
-                              if (e.key === "Enter" && !e.shiftKey) {
+                              // Only send if user physically pressed Enter
+                              if (!isVoiceInputting && e.key === "Enter" && !e.shiftKey) {
                                 e.preventDefault();
                                 form.handleSubmit(onSubmit)();
                               }
                             }}
                           />
+                          
+                          <div className="absolute right-16 top-3">
+                            <VoiceInputButton
+                              onStart={() => setIsVoiceInputting(true)}
+                              onProcessingStateChange={setIsVoiceProcessing} // 🔥 Connected to state
+                              onStop={(text) => {
+                                const current = form.getValues("message") || "";
+                                const appended = current ? `${current} ${text}` : text;
+                                form.setValue("message", appended.trim(), { shouldValidate: true });
+                                setIsVoiceInputting(false);
+                              }}
+                            />
+                          </div>
+
                           {(status == "ready" || status == "error") && (
                             <Button
                               className="absolute right-3 top-3 rounded-full"
