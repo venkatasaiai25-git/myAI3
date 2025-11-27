@@ -63,12 +63,12 @@ export function VoiceInputButton({ onStart, onStop }: VoiceInputButtonProps) {
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
       className={`
-        ${buttonVariants({ variant: "default", size: "icon" })} 
-        rounded-full active:scale-95 transition-all
-          
+        size-10 rounded-full flex items-center justify-center
+        text-white transition-all duration-200 active:scale-95
+      
         ${isRecording
-          ? "bg-blue-500 hover:bg-blue-600 ring-4 ring-blue-300 animate-pulse"
-          : "bg-primary hover:bg-primary/90"   // <- SAME color as Send button
+          ? "bg-blue-500 hover:bg-blue-600 ring-4 ring-blue-300 animate-pulse scale-110 shadow-lg"
+          : "bg-[#ffc98b] hover:bg-[#ffb66a] shadow-md"
         }
       `}
     >
