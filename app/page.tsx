@@ -101,7 +101,7 @@ export default function Chat() {
     if (isClient && initialMessages.length === 0 && !welcomeMessageShownRef.current) {
       const welcomeMessage: UIMessage = {
         id: `welcome-${Date.now()}`,
-        role: "assistant" as const, // <-- fixed TS type
+        role: "assistant",
         parts: [
           {
             type: "text",
@@ -138,7 +138,6 @@ export default function Chat() {
 
   return (
     <div className="flex h-screen items-center justify-center font-sans dark:bg-black">
-
       <main className="w-full dark:bg-black h-screen relative">
 
         {/* ------------------------------------------------------------- */}
@@ -159,7 +158,9 @@ export default function Chat() {
             <ChatHeader>
               <ChatHeaderBlock />
               <ChatHeaderBlock className="justify-center items-center">
-                <Avatar className="size-8 ring-1 ring-primary">
+                <Avatar 
+                  className="size-8 ring-1 ring-primary"
+                >
                   <AvatarImage src="/logo.png" />
                   <AvatarFallback>
                     <Image src="/logo.png" alt="Logo" width={36} height={36} />
@@ -181,12 +182,11 @@ export default function Chat() {
             </ChatHeader>
           </div>
         </div>
-
         <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[88px] pb-[150px]">
           <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
               <>
-                <MessageWall messages={messages} status={status} durations={durations} onDurationChange={handleDurationChange}/>
+                <MessageWall messages={messages} status={status} durations={durations} onDurationChange={handleDurationChange} />
                 {status === "submitted" && (
                   <div className="flex justify-start max-w-3xl w-full">
                     <Loader2 className="size-4 animate-spin text-muted-foreground" />
@@ -200,7 +200,6 @@ export default function Chat() {
             )}
           </div>
         </div>
-
         <div className="fixed bottom-0 left-0 right-0 z-50 bg-linear-to-t from-background via-background/50 to-transparent dark:bg-black overflow-visible pt-13">
           <div className="w-full px-5 pt-5 pb-1 items-center flex justify-center relative overflow-visible">
             <div className="message-fade-overlay" />
@@ -212,7 +211,9 @@ export default function Chat() {
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="chat-form-message" className="sr-only">Message</FieldLabel>
+                        <FieldLabel htmlFor="chat-form-message" className="sr-only">
+                          Message
+                        </FieldLabel>
                         <div className="relative h-13">
                           <Input
                             {...field}
@@ -229,15 +230,24 @@ export default function Chat() {
                               }
                             }}
                           />
-
                           {(status == "ready" || status == "error") && (
-                            <Button className="absolute right-3 top-3 rounded-full" type="submit" disabled={!field.value.trim()} size="icon">
+                            <Button 
+                              className="absolute right-3 top-3 rounded-full" 
+                              type="submit" 
+                              disabled={!field.value.trim()} 
+                              size="icon"
+                            >
                               <ArrowUp className="size-4" />
                             </Button>
                           )}
-
                           {(status == "streaming" || status == "submitted") && (
-                            <Button className="absolute right-2 top-2 rounded-full" size="icon" onClick={stop}>
+                            <Button 
+                              className="absolute right-2 top-2 rounded-full" 
+                              size="icon" 
+                              onClick={() => {
+                                stop();
+                              }}
+                            >
                               <Square className="size-4"/>
                             </Button>
                           )}
@@ -249,15 +259,13 @@ export default function Chat() {
               </form>
             </div>
           </div>
-
           <div className="w-full px-5 py-3 items-center flex justify-center text-xs text-muted-foreground">
             © {new Date().getFullYear()} {OWNER_NAME}&nbsp;
             <Link href="/terms" className="underline">Terms of Use</Link>&nbsp;Powered by&nbsp;
             <Link href="https://ringel.ai/" className="underline">Ringel.AI</Link>
           </div>
         </div>
-
       </main>
-    </div>
+    </div >
   );
 }
