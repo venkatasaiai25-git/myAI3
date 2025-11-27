@@ -218,12 +218,8 @@ export default function Chat() {
                             }}
                           />
                           {/* 🔥 Voice Button Added Safely */}
-                          <div className="absolute right-12 top-3 flex items-center">
-                            <button
-                              className="rounded-full w-10 h-10 flex items-center justify-center bg-orange-500 text-white hover:bg-orange-600 active:scale-95 shadow"
-                            >
-                              <VoiceInputButton onText={(text) => form.setValue("message", text)} />
-                            </button>
+                          <div className="absolute right-12 top-3">
+                            <VoiceInputButton onText={(text) => form.setValue("message", text)} />
                           </div>
                           
                           {(status == "ready" || status == "error") && (
