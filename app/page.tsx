@@ -169,7 +169,7 @@ export default function Chat() {
             </Button>
           </div>
         </div>
-        <div className="overflow-y-auto h-[calc(100vh-100px)] px-5 py-6 pb-[150px]">
+        <div className="overflow-y-auto px-5 pt-[100px] pb-[130px]">
           <div className="flex flex-col items-center justify-end min-h-full">
             {isClient ? (
               <>
