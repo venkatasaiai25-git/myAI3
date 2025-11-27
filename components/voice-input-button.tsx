@@ -1,22 +1,22 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { buttonVariants } from "@/components/ui/button";  // <-- add this at top
+import { Button } from "@/components/ui/button"; // USE SAME COMPONENT AS SEND!
 
 type VoiceInputButtonProps = {
-  onText: (value: string) => void; // gets transcribed text & sends back to parent
+  onText: (value: string) => void;
 };
 
 export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<BlobPart[]>([]);
-  const [isRecording, setIsRecording] = useState<boolean | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
 
   async function startRecording() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-
       const mediaRecorder = new MediaRecorder(stream);
+
       mediaRecorderRef.current = mediaRecorder;
       chunksRef.current = [];
       setIsRecording(true);
@@ -41,33 +41,30 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
 
       mediaRecorder.start();
     } catch (err) {
-      alert("Microphone access blocked — allow mic to use voice input.");
+      alert("Microphone blocked — enable permissions.");
       console.error(err);
     }
   }
 
   function stopRecording() {
-    const recorder = mediaRecorderRef.current;
-    if (recorder && recorder.state !== "inactive") {
-      recorder.stop();
+    if (mediaRecorderRef.current?.state !== "inactive") {
+      mediaRecorderRef.current.stop();
     }
   }
 
   return (
-    <button
-      type="button"
+    <Button
+      size="icon"                 // SAME AS SEND BUTTON
+      variant="default"           // SAME COLOR SYSTEM
+      className={`rounded-full transition-all ${
+        isRecording ? "bg-red-500 hover:bg-red-600" : "bg-primary hover:bg-primary/80"
+      }`}
       onMouseDown={startRecording}
       onMouseUp={stopRecording}
       onTouchStart={startRecording}
       onTouchEnd={stopRecording}
-      className={`
-        ${buttonVariants({ variant: "default" })}
-        size-10 rounded-full          /* exact circle */
-        flex items-center justify-center
-        ${isRecording === true ? "ring-4 ring-red-400 animate-pulse" : ""}
-     `}
     >
       🎤
-    </button>
+    </Button>
   );
 }
