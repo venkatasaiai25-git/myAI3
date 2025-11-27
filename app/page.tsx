@@ -168,8 +168,8 @@ export default function Chat() {
                 {CLEAR_CHAT_TEXT}
               </Button>
             </ChatHeaderBlock>
+            </ChatHeader>
             </div>
-          </ChatHeader>
         </div>
       </div>
         <div className="h-screen overflow-y-auto px-5 py-4 w-full pt-[140px] pb-[150px]">
