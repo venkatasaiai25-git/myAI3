@@ -46,8 +46,9 @@ export function VoiceInputButton({ onText }: VoiceInputButtonProps) {
   }
 
   function stopRecording() {
-    if (mediaRecorderRef.current?.state !== "inactive") {
-      mediaRecorderRef.current.stop();
+    const recorder = mediaRecorderRef.current;
+    if (recorder && recorder.state !== "inactive") {
+      recorder.stop();
     }
   }
 
