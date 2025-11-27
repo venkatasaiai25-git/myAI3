@@ -211,7 +211,8 @@ export default function Chat() {
                             aria-invalid={fieldState.invalid}
                             autoComplete="off"
                             onKeyDown={(e) => {
-                              if (e.key === "Enter" && !e.shiftKey) {
+                              // Only send if user physically pressed Enter
+                              if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {
                                 e.preventDefault();
                                 form.handleSubmit(onSubmit)();
                               }
@@ -224,7 +225,7 @@ export default function Chat() {
                                 const current = form.getValues("message") || "";
                                 const appended = current ? `${current} ${text}` : text;
                           
-                                form.setValue("message", appended, { shouldValidate: true });
+                                form.setValue("message", appended.trim(), { shouldValidate: true });
                               }}
                             />
                           </div>
